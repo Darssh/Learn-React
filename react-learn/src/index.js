@@ -66,7 +66,6 @@ class Clock extends React.Component {
 	componentWillUnmount() {
 		
 	}
-	
 	render() {
 		return (
 			<div>
