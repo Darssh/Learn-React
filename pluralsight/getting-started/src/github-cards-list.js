@@ -38,12 +38,12 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form className="default" onSubmit={this.handleSubmit}>
-                <input type="text" 
+            <form className="default form-inline" onSubmit={this.handleSubmit}>
+                <input className="form-control" type="text" 
                     value={this.state.userName}
                     onChange={(event) => this.setState({userName: event.target.value })}
                     placeholder="Github Username" />
-                <button type="submit">Add card</button>
+                <button className="btn btn-primary" type="submit">Add card</button>
             </form>
         );
     }
