@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, IndexLink } from 'react-router';
+import { Switch, Route, Link } from 'react-router-dom';
+import routes from '../routes.js';
 
-const Base = ({children}) => (
+const Base = () => (
     <div>
         <div className="top-bar">
             <div className="top-bar-left">
-                <IndexLink to="/">React App</IndexLink>
+                <Link to="/">React App</Link>
             </div>
 
             <div className="top-bar-right">
@@ -15,13 +16,14 @@ const Base = ({children}) => (
             </div>
         </div>
 
-        {children}
-
+        <main>
+            <Switch>
+                {routes.childRoutes.map((route) => {
+                    return <Route key={route.path} exact path={route.path} component={route.component}/>;
+                })}
+            </Switch>
+        </main>
     </div>
 );
-
-Base.PropTypes = {
-    children: PropTypes.object.isRequired
-};
 
 export default Base;
